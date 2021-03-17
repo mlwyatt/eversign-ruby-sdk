@@ -1,7 +1,7 @@
 require_relative 'config'
 
 document = Eversign::Models::Document.new
-document.title = 'Tile goes here'
+document.title = 'Title goes here'
 document.message = 'tester@gmail.com'
 
 recipient = Eversign::Models::Recipient.new(name='Test', email='recipient@gmail.com')

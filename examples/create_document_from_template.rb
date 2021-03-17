@@ -3,7 +3,7 @@ require_relative 'config'
 
 document_template = Eversign::Models::Template.new
 document_template.template_id = Config.configuration.template_id
-document_template.title = 'Tile goes here'
+document_template.title = 'Title goes here'
 document_template.message = 'my message'
 
 signer = Eversign::Models::Signer.new(

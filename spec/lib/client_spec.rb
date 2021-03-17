@@ -61,7 +61,7 @@ describe Eversign::Client do
     end
   end
 
-  describe '#get_buisnesses' do
+  describe '#get_businesses' do
     let(:path) { "/api/business?access_key=#{access_key}" }
     let(:business1_id) { 12345 }
     let(:business1_name) { 'test_b_1' }
@@ -76,9 +76,9 @@ describe Eversign::Client do
     context 'when businesses are returned from service' do
       let(:response) { [business_1, business_2] }
       
-      it 'returns buisnesses' do
+      it 'returns businesses' do
         obj = Eversign::Client.new
-        businesses = obj.get_buisnesses
+        businesses = obj.get_businesses
         expect(businesses.size).to eq(2)
         expect(businesses[0].business_id).to eq(business1_id)
         expect(businesses[0].business_name).to eq(business1_name)
@@ -88,7 +88,7 @@ describe Eversign::Client do
     context 'when no businesses are returned from service' do
       let(:response) { [] }
       it 'returns empty array' do
-        expect(obj.get_buisnesses).to be_empty
+        expect(obj.get_businesses).to be_empty
       end
     end
   end
@@ -228,12 +228,12 @@ describe Eversign::Client do
     let(:file_path) { "/api/file?access_key=#{access_key}&business_id=#{business_id}" }
     let(:document_hash) { 'abcdefg' }
     let(:title) { 'test_title' }
-    let(:response) { { document_hash: document_hash, title: title, files: [file], recipients: [recipient], signers: [signer], feilds: [[feild]]} }
+    let(:response) { { document_hash: document_hash, title: title, files: [file], recipients: [recipient], signers: [signer], fields: [[field]]} }
     let(:file_name) { 'test_file' }
     let(:file_url) { 'test_file_url' }
     let(:file) { { name: file_name, file_url: file_url } }
-    let(:feild_name) { 'test_feild' }
-    let(:feild) { { name: feild_name } }
+    let(:field_name) { 'test_field' }
+    let(:field) { { name: field_name } }
     let(:recipient_email) { 'recipeient@email.com' }
     let(:recipient_name) { 'test_recipient' }
     let(:recipient) { { name: recipient_name, email: recipient_email } }
@@ -252,10 +252,10 @@ describe Eversign::Client do
       file = Eversign::Models::File.new(file_name)
       file.file_url = file_url
       doc.add_file(file)
-      feild = Eversign::Models::Field.new
-      doc.add_field(feild)
-      feild.name = 
-      doc.add_field_list([feild])
+      field = Eversign::Models::Field.new
+      doc.add_field(field)
+      field.name =
+      doc.add_field_list([field])
       doc.add_recipient(Eversign::Models::Recipient.new(recipient_name, recipient_email))
       doc.add_signer(Eversign::Models::Signer.new(signer_name, recipient_email))
       created_doc = obj.create_document(doc)

@@ -53,7 +53,7 @@ module Eversign
       raise 'no success'
     end
 
-		def get_buisnesses
+		def get_businesses
 			response = execute_request(:get, "/api/business?access_key=#{access_key}")
 	  	extract_response(response.body, Eversign::Mappings::Business)
 		end
