@@ -12,3 +12,4 @@ eversign-*.gem
 *.pdf
 *.jpg
 .vscode/
+.idea/*

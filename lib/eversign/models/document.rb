@@ -12,8 +12,7 @@ module Eversign
 		  end
 
 		  def add_field(field)
-		  	add_field_list(field)
-		  	# add_field_list([field])
+		  	add_field_list([field])
 		  end
 
 		  def add_field_list(field_list)
