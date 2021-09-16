@@ -8,7 +8,7 @@ module Eversign
 
       attr_accessor *ATTRIBUTES
 
-      def initialize(attrs)
+      def initialize(attrs = {})
         ATTRIBUTES.each do |attr|
           send("#{attr}=", attrs.fetch(attr, nil))
         end
