@@ -13,3 +13,4 @@ eversign-*.gem
 *.jpg
 .vscode/
 .idea/*
+.ruby-version

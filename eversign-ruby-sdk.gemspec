@@ -22,12 +22,15 @@ Gem::Specification.new do |spec|
     raise "RubyGems 2.0 or newer is required to protect against public gem pushes."
   end
 
-  spec.files         = Dir['lib/**/*.rb', 'READ']      
+  spec.files         = Dir['lib/**/*.rb', 'READ']
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
+  spec.required_ruby_version = '~> 3.0.1'
+
   spec.add_dependency 'rails', '>= 4'
   spec.add_dependency 'faraday', '>= 0.13'
+  spec.add_dependency 'faraday-multipart', '1.0.3'
   spec.add_dependency 'addressable', '~> 2.5'
   spec.add_dependency 'kartograph', '~> 0.2.3'
   spec.add_dependency 'configurations', '~> 2.2'

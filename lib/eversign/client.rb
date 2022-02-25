@@ -1,5 +1,6 @@
 require 'addressable/template'
 require 'faraday'
+require 'faraday/multipart'
 require 'json'
 require 'logger'
 
