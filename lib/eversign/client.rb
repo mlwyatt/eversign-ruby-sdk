@@ -12,9 +12,8 @@ module Eversign
 	class Client
 		attr_accessor :access_key, :base_uri, :business_id, :token
 
-		def initialize()
+		def initialize(access_key = Eversign.configuration.access_key)
 			self.base_uri = Eversign.configuration.api_base || 'https://api.eversign.com'
-			access_key = Eversign.configuration.access_key
 			if access_key.start_with?('Bearer ')
           self.set_oauth_access_token(access_key)
       else
